@@ -11,7 +11,7 @@ echo " Service Account id is $SA"
 
 echo " Enabling necessary APIS "
 
-gcloud services enable container.googleapis.com storage.googleapis.com anthos.googleapis.com anthosgke.googleapis.com cloud.googleapis.com cloudresourcemanager.googleapis.com containerregistry.googleapis.com file.googleapis.com ; gcloud services list --enable
+gcloud services enable container.googleapis.com storage.googleapis.com anthos.googleapis.com anthosgke.googleapis.com cloud.googleapis.com cloudresourcemanager.googleapis.com containerregistry.googleapis.com file.googleapis.com ; gcloud services list --enabled
 
 echo " Creating Service Account "
 
@@ -24,5 +24,5 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 gcloud iam service-accounts keys create acgsandbox.json \
         --iam-account=$SA@$PROJECT_ID.iam.gserviceaccount.com
 
-cloudshell download /home/$USER/acgsandbox.json 
+cloudshell download acgsandbox.json 
 
